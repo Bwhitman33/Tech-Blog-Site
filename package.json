@@ -1,0 +1,31 @@
+{
+  "name": "tech-blog-site",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Bwhitman33/Tech-Blog-Site"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Bwhitman33/Tech-Blog-Site/issues"
+  },
+  "homepage": "https://github.com/Bwhitman33/Tech-Blog-Site#readme",
+  "start": "node server.js",
+  "dependencies": {
+    "bcrypt": "^5.1.0",
+    "connect-session-sequelize": "^7.1.7",
+    "dotenv": "^14.3.2",
+    "express": "^4.18.2",
+    "express-handlebars": "^6.0.7",
+    "express-session": "^1.17.3",
+    "mysql2": "^2.3.3",
+    "sequelize": "^6.31.1"
+  }
+}
