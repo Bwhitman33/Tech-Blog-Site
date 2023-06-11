@@ -3,7 +3,7 @@ const routes = require('./controllers');
 const sequelize = require('./config/connection');
 const path = require('path');
 
-const helpers = require('./utils/helpers');
+// const helpers = require('./utils/helpers');
 
 const exphbs = require('express-handlebars');
 const hbs = exphbs.create({ helpers });
@@ -21,6 +21,9 @@ const sess = {
     
 // Session will automatically expire in 5 minutes
     maxAge: 300000,
+    httpOnly: true,
+    secure: false,
+    sameSite: 'strict',
   },
   resave: true,
   rolling: true,
