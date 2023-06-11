@@ -1,49 +1,55 @@
-const express = require('express');
-const routes = require('./controllers');
-const sequelize = require('./config/connection');
-const path = require('path');
+const path = require("path");
 
-// const helpers = require('./utils/helpers');
+require('dotenv').config();
 
-const exphbs = require('express-handlebars');
-const hbs = exphbs.create({ helpers });
+const express = require("express");
+const session = require("express-session");
+const routes = require("./controllers");
+const sequelize = require("./config/connection.js");
+const exphbs = require("express-handlebars");
+const SequelizeStore = require("connect-session-sequelize")(session.Store);
 
-const session = require('express-session');
 
-const app = express();
 const PORT = process.env.PORT || 3001;
+const app = express();
 
-const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
+// session setup
 const sess = {
-  secret: 'it is a secret',
+  secret: "Super secret secret",
+  resave: false,
+  saveUninitialized: true,
   cookie: {
-    
-// Session will automatically expire in 5 minutes
     maxAge: 300000,
     httpOnly: true,
     secure: false,
-    sameSite: 'strict',
+    sameSite: "strict",
   },
-  resave: true,
-  rolling: true,
-  saveUninitialized: true,
   store: new SequelizeStore({
-    db: sequelize
+    db: sequelize,
   }),
 };
 
 app.use(session(sess));
 
+const helpers = require("./utils/helpers");
+
+const hbs = exphbs.create({ helpers });
+app.engine("handlebars", hbs.engine);
+app.set('views', path.join(__dirname, 'views'));
+app.set("view engine", "handlebars");
+
+// Middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, "public")));
 
-app.engine('handlebars', hbs.engine);
-app.set('view engine', 'handlebars');
 
+// Routes
 app.use(routes);
 
-sequelize.sync({ force: false }).then(() => {
-  app.listen(PORT, () => console.log('Now listening'));
-});
+sequelize.sync({ force: true }).then(() => {
+  app.listen(PORT, () =>
+    console.log(`Now listening\nhttp://localhost:${PORT}`)
+  );
+}); 

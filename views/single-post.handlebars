@@ -4,9 +4,6 @@
     <span>({{post.post_url}})</span>
   </div>
   <div class="meta">
-    {{post.vote_count}} point(s) by {{post.user.username}} on
-    {{post.created_at}}
-    |
     <a href="/post/{{post.id}}">{{post.comments.length}} comment(s)</a>
   </div>
 </article>
@@ -18,7 +15,6 @@
 
   <div>
     <button type="submit">add comment</button>
-    <button type="button" class="upvote-btn">upvote</button>
   </div>
 </form>
 
