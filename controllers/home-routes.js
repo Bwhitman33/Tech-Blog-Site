@@ -87,10 +87,10 @@ router.get('/post/:id', (req, res) => {
 });
 
 // if user clicks login while logged in redirects to homepage, else brings user to login
-router.get('login', (req, res) => {
+router.get('/login', (req, res) => {
     if (req.session.loggedIn) {
         res.redirect('/');
-        return
+        return;
     }
     res.render('login');
 });
