@@ -2,8 +2,19 @@
   box-sizing: border-box;
 }
 
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 li {
   color: #000000;
+  justify-content: center;
+}
+
+ol {
+  justify-content: center;
 }
 
 h2 {
@@ -22,6 +33,7 @@ body, html {
   font-family: sans-serif;
   color: white;
   background-color: #8ba9e2;
+  justify-content: center;
 }
 
 a {
@@ -64,11 +76,17 @@ button:hover {
   padding-bottom: 15px;
   color: black;
   border-color: black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .post-list {
   margin: 0;
   padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 textarea, input {
@@ -183,7 +201,11 @@ main {
 .comment .meta {
   font-size: 90%;
   margin-bottom: .5%;
-  opacity: .6;
+  color: #000000;
+}
+
+.comment .text {
+  color: #000000;
 }
 
 .new-post-form input {
@@ -192,6 +214,10 @@ main {
 
 .edit-post-form {
   margin-bottom: 5%;
+}
+
+span {
+  color: black;
 }
 
 footer {
