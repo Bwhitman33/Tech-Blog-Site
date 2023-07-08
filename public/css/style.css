@@ -6,6 +6,15 @@ li {
   color: #000000;
 }
 
+h2 {
+  color: #000000;
+}
+
+label {
+  color: #000000;
+  font-weight: bold;
+}
+
 body, html {
   height: 100%;
   padding: 0;

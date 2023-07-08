@@ -43,6 +43,8 @@ async function loginFormHandler(event) {
       // check the response status
       if (response.ok) {
         console.log('success');
+        document.location.replace('/');
+        alert('Account created and Logged in!');
       } else {
         alert(response.statusText);
       }
